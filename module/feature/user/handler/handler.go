@@ -1,7 +1,6 @@
 package handler
 
 import (
-	// "eticketing/module/entities"
 	"fastfooducate/module/feature/user/domain"
 	"fastfooducate/utils/response"
 	"strconv"

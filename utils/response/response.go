@@ -1,6 +1,8 @@
 package response
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+)
 
 type SuccessResponse struct {
 	Message string      `json:"message"`
@@ -64,4 +66,48 @@ func PaginationBuildResponse(c *fiber.Ctx, statusCode int, message string, data 
 	}
 
 	return c.Status(statusCode).JSON(paginationData)
+}
+
+func SendStatusForbiddenResponse(c *fiber.Ctx, message string) error {
+	return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"message": message})
+}
+
+func SendStatusCreatedResponse(c *fiber.Ctx, message string, data interface{}) error {
+	return c.Status(fiber.StatusCreated).JSON(fiber.Map{"message": message, "data": data})
+}
+
+func SendStatusOkResponse(c *fiber.Ctx, message string) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"message": message})
+}
+
+func SendStatusOkWithDataResponse(c *fiber.Ctx, message string, data interface{}) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"message": message, "data": data})
+}
+
+func SendStatusOkWithDataResponses(c *fiber.Ctx, message string, extraMessage string, data interface{}) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"message": message, "extra_message": extraMessage, "data": data})
+}
+
+func SendStatusInternalServerResponse(c *fiber.Ctx, message string) error {
+	return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": message})
+}
+
+func SendBadRequestResponse(c *fiber.Ctx, message string) error {
+	return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"message": message})
+}
+
+func SendSuccessResponse(c *fiber.Ctx, message string, data interface{}) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"message": message, "data": data})
+}
+
+func SendStatusConflictResponse(c *fiber.Ctx, message string) error {
+	return c.Status(fiber.StatusConflict).JSON(fiber.Map{"message": message})
+}
+
+func SendStatusNotFoundResponse(c *fiber.Ctx, message string) error {
+	return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"message": message})
+}
+
+func SendStatusUnauthorizedResponse(c *fiber.Ctx, message string) error {
+	return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"message": message})
 }

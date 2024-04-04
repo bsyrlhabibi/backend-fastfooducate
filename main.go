@@ -27,7 +27,7 @@ func main() {
 	route.SetupRoutes(app, db, jwtService, userService)
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, Ruti Store")
+		return c.SendString("Hello, FastFooducate!")
 	})
 
 	port := os.Getenv("PORT")

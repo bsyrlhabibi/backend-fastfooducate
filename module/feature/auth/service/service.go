@@ -61,7 +61,6 @@ func (s *AuthService) Register(req *domain.RegisterRequest) (*entities.UserModel
 		Email:    req.Email,
 		Password: hashPassword,
 		Name:     req.Name,
-		Phone:    req.Phone,
 		Role:     "customer",
 	}
 

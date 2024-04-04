@@ -8,7 +8,6 @@ import (
 type UserResponse struct {
 	Name      string    `json:"name"`
 	Email     string    `json:"email"`
-	Phone     string    `json:"phone"`
 	Role      string    `json:"role"`
 	CreatedAt time.Time `json:"created_at"`
 }
@@ -38,7 +37,6 @@ func RegisterFormatter(user *entities.UserModels) *UserResponse {
 		Email: user.Email,
 		Role:  user.Role,
 		Name:  user.Name,
-		Phone: user.Phone,
 	}
 	return userFormatter
 }
