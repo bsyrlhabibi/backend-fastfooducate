@@ -61,7 +61,7 @@ func (s *AuthService) Register(req *domain.RegisterRequest) (*entities.UserModel
 		Email:    req.Email,
 		Password: hashPassword,
 		Name:     req.Name,
-		Role:     "customer",
+		Role:     "user",
 	}
 
 	result, err := s.repo.CreateUser(value)
